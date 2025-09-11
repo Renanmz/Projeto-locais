@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AchaRestaurantes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen flex flex-col bg-gray-100">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center px-4 py-2 bg-sky-500 text-white">
+    <h1 class="text-lg font-bold">Achador de restaurantes</h1>
+    <div class="flex items-center gap-2">
+      <span id="username" class="font-medium">Usuário</span>
+      <button id="logoutBtn" class="px-3 py-1 bg-red-600 rounded hover:bg-red-700">Sair</button>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main id="mainContent" class="flex-1 p-4 overflow-y-auto">
+    <!-- Por padrão mostra "Início" -->
+    <div id="inicio" class="content-section"> 
+      <h2 class="text-xl font-semibold">Bem-vindo!</h2>
+      <p class="mt-2">Aqui é a página inicial.</p>
+    </div>
+
+    <div id="locais" class="content-section hidden">
+      <h2 class="text-xl font-semibold">Locais</h2>
+      <p class="mt-2">Lista de restaurantes próximos.</p>
+    </div>
+
+    <div id="favoritos" class="content-section hidden">
+      <h2 class="text-xl font-semibold">Favoritos</h2>
+      <p class="mt-2">Aqui ficam os seus restaurantes favoritos.</p>
+    </div>
+
+    <div id="perfil" class="content-section hidden">
+      <h2 class="text-xl font-semibold">Perfil</h2>
+      <p class="mt-2">Informações do usuário e configurações.</p>
+    </div>
+  </main>
+
+  <!-- Barra de navegação -->
+  <nav class="flex justify-around bg-sky-500 text-black py-3">
+    <button class="nav-btn" data-target="inicio">Início</button>
+    <button class="nav-btn" data-target="locais">Locais</button>
+    <button class="nav-btn" data-target="favoritos">Favoritos</button>
+    <button class="nav-btn" data-target="perfil">Perfil</button>
+  </nav>
+
+  <script src="../Backend/script.js"></script>
+</body>
+</html>
