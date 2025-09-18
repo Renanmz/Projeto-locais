@@ -4,36 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="h-screen flex items-center justify-center bg-gray-100">
 
   <div class="w-full max-w-sm p-6 bg-white rounded-2xl shadow-md">
-    <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Acesso ao Sistema</h1>
-    
-    <form id="loginForm" class="space-y-4">
-      <div>
-        <label for="username" class="block text-sm font-medium text-gray-700">Nome de Usuário</label>
-        <input type="text" id="username" name="username" required
-          class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
-      </div>
 
-      <div>
-        <label for="password" class="block text-sm font-medium text-gray-700">Senha</label>
-        <input type="password" id="password" name="password" required
-          class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
-      </div>
+    <!-- Formulário de Login -->
+    <div id="loginSection">
+      <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Acesso ao Sistema</h1>
+      <form id="loginForm" class="space-y-4">
+        <div>
+          <label for="loginUsername" class="block text-sm font-medium text-gray-700">Nome de Usuário</label>
+          <input type="text" id="loginUsername" required
+            class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+        </div>
+        <div>
+          <label for="loginPassword" class="block text-sm font-medium text-gray-700">Senha</label>
+          <input type="password" id="loginPassword" required
+            class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+        </div>
+        <button type="submit"
+          class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow">
+          Entrar
+        </button>
+      </form>
+      <p id="loginError" class="text-red-500 text-sm mt-4 text-center hidden">Nome ou senha inválidos!</p>
 
-      <button type="submit"
-        class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow">
-        Entrar
-      </button>
-    </form>
+      <p class="mt-4 text-center text-sm">
+        Não tem conta? <button id="goRegister" class="text-blue-600 hover:underline">Cadastre-se</button>
+      </p>
+    </div>
 
-    <p id="errorMsg" class="text-red-500 text-sm mt-4 text-center hidden">Nome ou senha inválidos!</p>
+    <!-- Formulário de Cadastro -->
+    <div id="registerSection" class="hidden">
+      <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Cadastrar Usuário</h1>
+      <form id="registerForm" class="space-y-4">
+        <div>
+          <label for="regUsername" class="block text-sm font-medium text-gray-700">Nome de Usuário</label>
+          <input type="text" id="regUsername" required
+            class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none">
+        </div>
+        <div>
+          <label for="regPassword" class="block text-sm font-medium text-gray-700">Senha</label>
+          <input type="password" id="regPassword" required
+            class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none">
+        </div>
+        <button type="submit"
+          class="w-full py-2 px-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow">
+          Cadastrar
+        </button>
+      </form>
+      <p id="registerError" class="text-red-500 text-sm mt-4 text-center hidden">Usuário já existe!</p>
+      <p id="registerSuccess" class="text-green-600 text-sm mt-4 text-center hidden">Usuário cadastrado com sucesso!</p>
+
+      <p class="mt-4 text-center text-sm">
+        Já tem conta? <button id="goLogin" class="text-blue-600 hover:underline">Faça login</button>
+      </p>
+    </div>
+
   </div>
 
-  <script src="../Backend/login.js"></script>
+  <script type="module" src="../Backend/login.js"></script>
 </body>
 </html>
