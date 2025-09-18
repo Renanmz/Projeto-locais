@@ -116,6 +116,79 @@ async function renderFavorites() {
   });
 }
 
+// --- Função para renderizar perfil ---
+function renderProfile() {
+  const perfilDiv = document.getElementById("perfil");
+
+  perfilDiv.innerHTML = `
+    <h2 class="text-xl font-semibold mb-4">Perfil</h2>
+
+    <div class="border rounded-lg p-4 shadow-md bg-gray-50">
+      <div class="flex items-center gap-4">
+        <!-- Avatar -->
+        <div class="w-16 h-16 bg-sky-400 text-white flex items-center justify-center rounded-full text-2xl font-bold">
+          JP
+        </div>
+        <!-- Nome e email -->
+        <div>
+          <h3 class="text-lg font-bold">João Pedro da Silva</h3>
+          <p class="text-sm text-gray-600">joaopedro@email.com</p>
+        </div>
+      </div>
+
+      <div class="mt-4 text-sm text-gray-700 space-y-2">
+        <p>📍 Localização: São Paulo - SP</p>
+        <p>🎂 Idade: 28 anos</p>
+        <p>📞 Telefone: (11) 98765-4321</p>
+        <p>⭐ Membro desde: 2021</p>
+      </div>
+
+      <div class="mt-4">
+        <button class="px-4 py-2 bg-sky-500 text-white rounded-md text-sm hover:bg-sky-600">
+          Editar Perfil
+        </button>
+      </div>
+    </div>
+  `;
+}
+// --- Função para renderizar início ---
+function renderInicio() {
+  const inicioDiv = document.getElementById("inicio");
+
+  inicioDiv.innerHTML = `
+    <h2 class="text-xl font-semibold mb-4">Bem-vindo ao AchaRestaurantes!</h2>
+
+    <div class="grid grid-cols-2 gap-4 mb-6">
+      <div class="bg-sky-100 rounded-xl p-4 shadow">
+        <p class="text-sm text-gray-600">🍽 Restaurantes cadastrados</p>
+        <h3 class="text-2xl font-bold text-sky-700">124</h3>
+      </div>
+      <div class="bg-green-100 rounded-xl p-4 shadow">
+        <p class="text-sm text-gray-600">⭐ Avaliações feitas</p>
+        <h3 class="text-2xl font-bold text-green-700">879</h3>
+      </div>
+      <div class="bg-yellow-100 rounded-xl p-4 shadow">
+        <p class="text-sm text-gray-600">👤 Usuários ativos</p>
+        <h3 class="text-2xl font-bold text-yellow-700">312</h3>
+      </div>
+      <div class="bg-purple-100 rounded-xl p-4 shadow">
+        <p class="text-sm text-gray-600">🏆 Restaurante mais popular</p>
+        <h3 class="text-lg font-semibold text-purple-700">Pizzaria Bella Itália</h3>
+      </div>
+    </div>
+
+    <div class="bg-white border rounded-xl p-4 shadow-md">
+      <h3 class="text-lg font-semibold mb-2">Novidades</h3>
+      <ul class="text-sm text-gray-700 list-disc list-inside space-y-1">
+        <li>Novo restaurante cadastrado: <strong>Churrascaria Boi na Brasa</strong></li>
+        <li>Avaliações agora contam com fotos 📷</li>
+        <li>Promoção do mês: <strong>10% OFF em frutos do mar</strong></li>
+      </ul>
+    </div>
+  `;
+}
+
+
 // --- Eventos de navegação ---
 const navButtons = document.querySelectorAll(".nav-btn");
 const sections = document.querySelectorAll(".content-section");
@@ -127,8 +200,10 @@ navButtons.forEach(btn => {
     sections.forEach(sec => sec.classList.add("hidden"));
     document.getElementById(target).classList.remove("hidden");
 
+    if (target === "inicio") renderInicio();
     if (target === "locais") renderRestaurants();
     if (target === "favoritos") renderFavorites();
+    if (target === "perfil") renderProfile();
   });
 });
 
